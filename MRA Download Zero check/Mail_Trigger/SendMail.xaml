@@ -1,0 +1,121 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SendMail" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="blsValid" Type="InArgument(x:Boolean)" />
+    <x:Property Name="io_filepath" Type="InArgument(x:String)" />
+    <x:Property Name="attachment" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:SendMail.blsValid>
+    <InArgument x:TypeArguments="x:Boolean" />
+  </this:SendMail.blsValid>
+  <this:SendMail.io_filepath>
+    <InArgument x:TypeArguments="x:String" />
+  </this:SendMail.io_filepath>
+  <this:SendMail.attachment>
+    <InArgument x:TypeArguments="x:String" />
+  </this:SendMail.attachment>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,550</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SendMail" sap:VirtualizedContainerService.HintSize="755,385" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="emailTo">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">sunil_chandrappa@exdion.com</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="detailsSub">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">MRA downloads zero loading BOT Successfully Completed</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Default="[&quot;Hello,&quot;+vbNewLine+&quot;The BOT has Completed automation Successfully&quot;+vbNewLine+vbNewLine+&quot;kindly check attached status&quot;+vbNewLine+vbNewLine+&quot;Regards,&quot;+vbNewLine+vbNewLine+&quot;Emdeon_Bot&quot;]" Name="detailbody" />
+      <Variable x:TypeArguments="x:String" Name="v_detailsSub">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String">MRA downloads zero loading BOT Unsuccessful</Literal>
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="v_detailbody">
+        <Variable.Default>
+          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="&quot;Hello,&quot;+vbNewLine+&quot;The BOT is throwing Exception&quot;+vbNewLine+vbNewLine+&quot;Kindly check attached Screenshot&quot;+vbNewLine+vbNewLine+&quot;Regards,&quot;+vbNewLine+vbNewLine+&quot;MRA downloads zero loading&quot;" />
+        </Variable.Default>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <If Condition="[blsValid]" sap:VirtualizedContainerService.HintSize="713,293" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Then>
+        <ui:SendExchangeMail Bcc="{x:Null}" Cc="{x:Null}" Domain="{x:Null}" EmailAutodiscover="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="[detailbody]" DisplayName="Send Exchange Mail Message" ExchangeVersion="Exchange2007_SP1" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendExchangeMail_1" IsBodyHtml="False" IsDraft="False" Password="Exdion@123" SaveCopy="False" Server="https://outlook.office365.com/EWS/Exchange.asmx" Subject="[detailsSub]" To="[emailTo]" User="internalprojects@exdion.com">
+          <ui:SendExchangeMail.Files>
+            <InArgument x:TypeArguments="x:String">[attachment]</InArgument>
+          </ui:SendExchangeMail.Files>
+        </ui:SendExchangeMail>
+      </If.Then>
+      <If.Else>
+        <ui:SendExchangeMail Bcc="{x:Null}" Cc="{x:Null}" Domain="{x:Null}" EmailAutodiscover="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" TimeoutMS="{x:Null}" Body="[v_detailbody]" DisplayName="Send Exchange Mail Message" ExchangeVersion="Exchange2007_SP1" sap:VirtualizedContainerService.HintSize="334,145" sap2010:WorkflowViewState.IdRef="SendExchangeMail_2" IsBodyHtml="False" IsDraft="False" Password="Exdion@123" SaveCopy="False" Server="https://outlook.office365.com/EWS/Exchange.asmx" Subject="[v_detailsSub]" To="[emailTo]" User="internalprojects@exdion.com">
+          <ui:SendExchangeMail.Files>
+            <InArgument x:TypeArguments="x:String">[io_filepath]</InArgument>
+            <InArgument x:TypeArguments="x:String">[attachment]</InArgument>
+          </ui:SendExchangeMail.Files>
+        </ui:SendExchangeMail>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

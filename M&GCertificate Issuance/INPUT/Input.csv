@@ -1,0 +1,8 @@
+﻿="Code",="Account Code",="Account Name",="Contact Name",="Contact Via",="Description",="Priority",="Follow Up/Start",="End"
+="CRT2",="TESTACCT32",="*Santa Maria Branch - M&G Test Account",="*M&G Test Account (Santa Maria Branch Info)",="Email:",="Certificate for Oct 2021 Renewals (Fail State at blank Servicing Roles - Find AM)",="Normal",7/27/2021,
+="CRT8",="TESTACCT04",="*Certificates - M&G Test Account",="Main Business Contact",="Phone:",="Certificate for Oct 2021 Renewals (Fail state at parsing master)",="Normal",7/27/2021,
+="CRT8",="TESTACCT04",="*Certificates - M&G Test Account",="Main Business Contact",="Phone:",="Certificate for Oct 2021 Renewals (Fail state at no notes)",="Normal",7/27/2021,
+="CRT8",="TESTACCT04",="*Certificates - M&G Test Account",="Main Business Contact",="Phone:",="Certificate for Oct 2021 Renewals (Successful Issue #2)",="Normal",7/27/2021,
+="CRT8",="TESTACCT04",="*Certificates - M&G Test Account",="Main Business Contact",="Phone:",="Certificate for Oct 2021 Renewals (Fail state at activity association - Find AM)",="Normal",7/27/2021,
+="CRT8",="TESTACCT28",="*EXDION Test Account",="Main Business Contact",="Email:",="Certificate for Oct 2021 Renewals (Fail state at Primary Contact)",="Normal",7/27/2021,
+="CRT2",="TESTACCT28",="*EXDION Test Account",="Main Business Contact",="Email:",="Certificate for Oct 2021 Renewals (Successful Issue #5)",="Normal",7/27/2021,
